@@ -18,15 +18,15 @@ public struct PodcastResponse: Decodable {
         case results
     }
     
-    public let results: [Podcast]
+    public let results: [PodcastModel]
     
-    init(results: [Podcast]) {
+    public init(results: [PodcastModel]) {
         self.results = results
     }
     
     public init(from decoder: Decoder) throws {
         let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
         let feedContainer = try rootContainer.nestedContainer(keyedBy: FeedCodingKeys.self, forKey: .feed)
-        self.results = try feedContainer.decode([Podcast].self, forKey: .results)
+        self.results = try feedContainer.decode([PodcastModel].self, forKey: .results)
     }
 }

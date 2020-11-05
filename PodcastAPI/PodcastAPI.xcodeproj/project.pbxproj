@@ -20,7 +20,7 @@
 		00D8045425540373008748FC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D8044825540373008748FC /* APIClient.swift */; };
 		00D8045525540373008748FC /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D8044A25540373008748FC /* Routable.swift */; };
 		00D8045F25540836008748FC /* PodcastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D8045E25540836008748FC /* PodcastResponse.swift */; };
-		00D80464255408B3008748FC /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D80463255408B3008748FC /* Podcast.swift */; };
+		00D80464255408B3008748FC /* PodcastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D80463255408B3008748FC /* PodcastModel.swift */; };
 		762FEA764BC21B077E4344CF /* libPods-PodcastAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E356D110F72BEB84CC95C1E /* libPods-PodcastAPI.a */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 		00D8044825540373008748FC /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		00D8044A25540373008748FC /* Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		00D8045E25540836008748FC /* PodcastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastResponse.swift; sourceTree = "<group>"; };
-		00D80463255408B3008748FC /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
+		00D80463255408B3008748FC /* PodcastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastModel.swift; sourceTree = "<group>"; };
 		4E356D110F72BEB84CC95C1E /* libPods-PodcastAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PodcastAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A3CD62DACB2C5A5C8C53E6 /* Pods-PodcastAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastAPI.debug.xcconfig"; path = "Target Support Files/Pods-PodcastAPI/Pods-PodcastAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		7144760DF7396BCD929FD106 /* Pods-PodcastAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastAPI.release.xcconfig"; path = "Target Support Files/Pods-PodcastAPI/Pods-PodcastAPI.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		00D8046225540887008748FC /* DTO's */ = {
 			isa = PBXGroup;
 			children = (
-				00D80463255408B3008748FC /* Podcast.swift */,
+				00D80463255408B3008748FC /* PodcastModel.swift */,
 			);
 			path = "DTO's";
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 				00D8045325540373008748FC /* URLComponents+API.swift in Sources */,
 				00D8045025540373008748FC /* APIResponse.swift in Sources */,
 				00D8045425540373008748FC /* APIClient.swift in Sources */,
-				00D80464255408B3008748FC /* Podcast.swift in Sources */,
+				00D80464255408B3008748FC /* PodcastModel.swift in Sources */,
 				00D8044D25540373008748FC /* APIError.swift in Sources */,
 				00D8045525540373008748FC /* Routable.swift in Sources */,
 				00D8044F25540373008748FC /* HTTPMethod.swift in Sources */,

@@ -8,9 +8,9 @@
 
 import Foundation
 
-public struct Podcast: Decodable {
-    let artistName: String
-    let name: String
-    let artworkUrl100: String
+public struct PodcastModel: Decodable {
+    public let artistName: String
+    public let name: String
+    public let artworkUrl100: String
 }
 

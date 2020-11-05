@@ -11,6 +11,7 @@ def api_pods
 end
 
 def client_pods
+  pod 'Kingfisher', '~> 5.0'
 end
 
 target 'Podcast' do

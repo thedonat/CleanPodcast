@@ -1,5 +1,5 @@
 //
-//  PodcastResponse.swift
+//  APIError.swift
 //  PodcastAPI
 //
 //  Created by Burak Donat on 5.11.2020.
