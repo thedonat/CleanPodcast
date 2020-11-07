@@ -10,6 +10,12 @@
 		009D7EE2255439CC00007727 /* PodcastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D7EE0255439CC00007727 /* PodcastTableViewCell.swift */; };
 		009D7EE3255439CC00007727 /* PodcastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009D7EE1255439CC00007727 /* PodcastTableViewCell.xib */; };
 		009D7EE925544C5100007727 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D7EE825544C5100007727 /* ImageLoader.swift */; };
+		009D7EF225555DC900007727 /* PodcastDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D7EEC25555DC900007727 /* PodcastDetailPresenter.swift */; };
+		009D7EF325555DC900007727 /* PodcastDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D7EED25555DC900007727 /* PodcastDetailWorker.swift */; };
+		009D7EF425555DC900007727 /* PodcastDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D7EEE25555DC900007727 /* PodcastDetailRouter.swift */; };
+		009D7EF525555DC900007727 /* PodcastDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D7EEF25555DC900007727 /* PodcastDetailModels.swift */; };
+		009D7EF625555DC900007727 /* PodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D7EF025555DC900007727 /* PodcastDetailViewController.swift */; };
+		009D7EF725555DC900007727 /* PodcastDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D7EF125555DC900007727 /* PodcastDetailInteractor.swift */; };
 		00D803D32553F42A008748FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D803D22553F42A008748FC /* AppDelegate.swift */; };
 		00D803D52553F42A008748FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D803D42553F42A008748FC /* SceneDelegate.swift */; };
 		00D803DA2553F42A008748FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D803D82553F42A008748FC /* Main.storyboard */; };
@@ -54,6 +60,12 @@
 		009D7EE0255439CC00007727 /* PodcastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastTableViewCell.swift; sourceTree = "<group>"; };
 		009D7EE1255439CC00007727 /* PodcastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodcastTableViewCell.xib; sourceTree = "<group>"; };
 		009D7EE825544C5100007727 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		009D7EEC25555DC900007727 /* PodcastDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailPresenter.swift; sourceTree = "<group>"; };
+		009D7EED25555DC900007727 /* PodcastDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailWorker.swift; sourceTree = "<group>"; };
+		009D7EEE25555DC900007727 /* PodcastDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailRouter.swift; sourceTree = "<group>"; };
+		009D7EEF25555DC900007727 /* PodcastDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailModels.swift; sourceTree = "<group>"; };
+		009D7EF025555DC900007727 /* PodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewController.swift; sourceTree = "<group>"; };
+		009D7EF125555DC900007727 /* PodcastDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailInteractor.swift; sourceTree = "<group>"; };
 		00D803CF2553F42A008748FC /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D803D22553F42A008748FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00D803D42553F42A008748FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +104,19 @@
 				009D7EE825544C5100007727 /* ImageLoader.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		009D7EEA2554661500007727 /* PodcastDeails */ = {
+			isa = PBXGroup;
+			children = (
+				009D7EEC25555DC900007727 /* PodcastDetailPresenter.swift */,
+				009D7EED25555DC900007727 /* PodcastDetailWorker.swift */,
+				009D7EEE25555DC900007727 /* PodcastDetailRouter.swift */,
+				009D7EEF25555DC900007727 /* PodcastDetailModels.swift */,
+				009D7EF025555DC900007727 /* PodcastDetailViewController.swift */,
+				009D7EF125555DC900007727 /* PodcastDetailInteractor.swift */,
+			);
+			path = PodcastDeails;
 			sourceTree = "<group>";
 		};
 		00D803C62553F42A008748FC = {
@@ -156,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				00D804742554222F008748FC /* Podcasts */,
+				009D7EEA2554661500007727 /* PodcastDeails */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -311,13 +337,19 @@
 				00D80471255421ED008748FC /* PodcastModels.swift in Sources */,
 				009D7EE2255439CC00007727 /* PodcastTableViewCell.swift in Sources */,
 				009D7EE925544C5100007727 /* ImageLoader.swift in Sources */,
+				009D7EF225555DC900007727 /* PodcastDetailPresenter.swift in Sources */,
+				009D7EF725555DC900007727 /* PodcastDetailInteractor.swift in Sources */,
 				00D80470255421ED008748FC /* PodcastRouter.swift in Sources */,
 				00D80472255421ED008748FC /* PodcastViewController.swift in Sources */,
 				00D80473255421ED008748FC /* PodcastInteractor.swift in Sources */,
+				009D7EF425555DC900007727 /* PodcastDetailRouter.swift in Sources */,
+				009D7EF325555DC900007727 /* PodcastDetailWorker.swift in Sources */,
 				00D803D32553F42A008748FC /* AppDelegate.swift in Sources */,
 				00D803D52553F42A008748FC /* SceneDelegate.swift in Sources */,
 				00D8046F255421ED008748FC /* PodcastWorker.swift in Sources */,
 				00D8046E255421ED008748FC /* PodcastPresenter.swift in Sources */,
+				009D7EF625555DC900007727 /* PodcastDetailViewController.swift in Sources */,
+				009D7EF525555DC900007727 /* PodcastDetailModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,10 +14,11 @@ import UIKit
 
 protocol PodcastDisplayLogic: class {
     func displayPodcasts(viewModel: Podcast.FetchPodcasts.ViewModel)
+    func displayPodcastDetail()
 }
 
 class PodcastViewController: UIViewController, PodcastDisplayLogic {
-    
+
     @IBOutlet weak var tableView: UITableView!
     
     var interactor: PodcastBusinessLogic?
@@ -87,6 +88,12 @@ class PodcastViewController: UIViewController, PodcastDisplayLogic {
     func configureUI() {
         tableView.register(UINib(nibName: "PodcastTableViewCell", bundle: nil), forCellReuseIdentifier: "PodcastTableViewCell")
     }
+    
+    // MARK: Display Podcast Detail
+    
+    func displayPodcastDetail() {
+        router?.routeToPodcastDetails(segue: nil)
+    }
 }
 
 
@@ -116,6 +123,6 @@ extension PodcastViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Route to details page
+        displayPodcastDetail()
     }
 }

@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol PodcastRoutingLogic {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToPodcastDetails(segue: UIStoryboardSegue?)
 }
 
 protocol PodcastDataPassing {
@@ -26,32 +26,30 @@ class PodcastRouter: NSObject, PodcastRoutingLogic, PodcastDataPassing {
   
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+  func routeToPodcastDetails(segue: UIStoryboardSegue?) {
+    if let segue = segue {
+      let destinationVC = segue.destination as! PodcastDetailViewController
+      var destinationDS = destinationVC.router!.dataStore!
+      passDataToPodcastDetail(source: dataStore!, destination: &destinationDS)
+    } else {
+      let destinationVC = viewController?.storyboard?.instantiateViewController(withIdentifier: "PodcastDetailViewController") as! PodcastDetailViewController
+      var destinationDS = destinationVC.router!.dataStore!
+      passDataToPodcastDetail(source: dataStore!, destination: &destinationDS)
+      navigateToPodcastDetail(source: viewController!, destination: destinationVC)
+    }
+  }
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: PodcastViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+  func navigateToPodcastDetail(source: PodcastViewController, destination: PodcastDetailViewController) {
+    source.show(destination, sender: nil)
+  }
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: PodcastDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  func passDataToPodcastDetail(source: PodcastDataStore, destination: inout PodcastDetailDataStore) {
+    
+    let selectedPodcast = viewController?.tableView.indexPathForSelectedRow?.row
+    destination.podcast = source.podcasts?[selectedPodcast!]
+  }
 }

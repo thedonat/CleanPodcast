@@ -41,5 +41,56 @@
             </objects>
             <point key="canvasLocation" x="141" y="132"/>
         </scene>
+        <!--Podcast Detail View Controller-->
+        <scene sceneID="J6k-Dw-HoK">
+            <objects>
+                <viewController storyboardIdentifier="PodcastDetailViewController" id="UZZ-6n-zAO" customClass="PodcastDetailViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ouf-Ne-MMp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S5X-dX-Q45">
+                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="XLk-1t-asE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UB-wg-KL9">
+                                <rect key="frame" x="16" y="460" width="382" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntb-Bp-r3v">
+                                <rect key="frame" x="16" y="516" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="S5X-dX-Q45" firstAttribute="trailing" secondItem="k06-QN-ufy" secondAttribute="trailing" id="502-o2-ppV"/>
+                            <constraint firstItem="S5X-dX-Q45" firstAttribute="leading" secondItem="k06-QN-ufy" secondAttribute="leading" id="BF8-wp-msK"/>
+                            <constraint firstItem="k06-QN-ufy" firstAttribute="trailing" secondItem="ntb-Bp-r3v" secondAttribute="trailing" constant="16" id="EzV-dR-UPr"/>
+                            <constraint firstItem="0UB-wg-KL9" firstAttribute="top" secondItem="S5X-dX-Q45" secondAttribute="bottom" constant="16" id="Npn-br-KrC"/>
+                            <constraint firstItem="k06-QN-ufy" firstAttribute="trailing" secondItem="0UB-wg-KL9" secondAttribute="trailing" constant="16" id="OHb-GX-C2Y"/>
+                            <constraint firstItem="0UB-wg-KL9" firstAttribute="leading" secondItem="k06-QN-ufy" secondAttribute="leading" constant="16" id="b0q-FW-0kN"/>
+                            <constraint firstItem="ntb-Bp-r3v" firstAttribute="top" secondItem="0UB-wg-KL9" secondAttribute="bottom" constant="32" id="coD-jW-DWP"/>
+                            <constraint firstItem="S5X-dX-Q45" firstAttribute="top" secondItem="k06-QN-ufy" secondAttribute="top" id="gaP-yc-mPC"/>
+                            <constraint firstItem="ntb-Bp-r3v" firstAttribute="leading" secondItem="k06-QN-ufy" secondAttribute="leading" constant="16" id="laN-Uk-TnZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="k06-QN-ufy"/>
+                    </view>
+                    <connections>
+                        <outlet property="podcastArtistNameLabel" destination="ntb-Bp-r3v" id="w2L-Ki-OrU"/>
+                        <outlet property="podcastImage" destination="S5X-dX-Q45" id="Yq4-bi-qX7"/>
+                        <outlet property="podcastNameLabel" destination="0UB-wg-KL9" id="ur5-sJ-jAl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ts-4P-50D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1095.6521739130435" y="131.91964285714286"/>
+        </scene>
     </scenes>
 </document>
