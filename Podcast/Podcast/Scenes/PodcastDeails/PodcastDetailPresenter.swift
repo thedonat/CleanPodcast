@@ -42,6 +42,7 @@ class PodcastDetailPresenter: PodcastDetailPresentationLogic {
         
         dateFormatter.dateFormat = "MMMM yyyy"
         let formattedDate = dateFormatter.string(from: date)
+        
         return formattedDate
     }
 }
