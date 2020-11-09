@@ -15,6 +15,7 @@ import PodcastAPI
 
 protocol PodcastDetailBusinessLogic {
     func fetchPodcast(request: PodcastDetail.FetchPodcast.Request)
+    func playPodcast(request: PodcastDetail.FetchPodcast.Request)
 }
 
 protocol PodcastDetailDataStore {
@@ -37,5 +38,15 @@ class PodcastDetailInteractor: PodcastDetailBusinessLogic, PodcastDetailDataStor
             let response = PodcastDetail.FetchPodcast.Response(podcasts: podcast)
             self.presenter?.presentPodcast(response: response)
         }
+    }
+    
+    
+    // MARK: Play Podcasts
+
+    func playPodcast(request: PodcastDetail.FetchPodcast.Request) {
+        let podcastUrl = self.podcast.url
+        if let url = URL(string: podcastUrl ) {
+              UIApplication.shared.open(url, options: [:], completionHandler: nil)
+          }
     }
 }

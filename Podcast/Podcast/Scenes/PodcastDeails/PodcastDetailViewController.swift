@@ -13,72 +13,82 @@
 import UIKit
 
 protocol PodcastDetailDisplayLogic: class {
-  func displayFetchedPodcast(viewModel: PodcastDetail.FetchPodcast.ViewModel)
+    func displayFetchedPodcast(viewModel: PodcastDetail.FetchPodcast.ViewModel)
 }
 
 class PodcastDetailViewController: UIViewController, PodcastDetailDisplayLogic {
-  var interactor: PodcastDetailBusinessLogic?
-  var router: (NSObjectProtocol & PodcastDetailRoutingLogic & PodcastDetailDataPassing)?
+    var interactor: PodcastDetailBusinessLogic?
+    var router: (NSObjectProtocol & PodcastDetailRoutingLogic & PodcastDetailDataPassing)?
     
     // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup() {
-    let viewController = self
-    let interactor = PodcastDetailInteractor()
-    let presenter = PodcastDetailPresenter()
-    let router = PodcastDetailRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    fetchPodcast()
-  }
-  
-  // MARK: Display Podcast Detail
-  
-  @IBOutlet weak var podcastImage: UIImageView!
-  @IBOutlet weak var podcastNameLabel: UILabel!
-  @IBOutlet weak var podcastArtistNameLabel: UILabel!
     
-  func fetchPodcast() {
-    let request = PodcastDetail.FetchPodcast.Request()
-    interactor?.fetchPodcast(request: request)
-  }
-  
-  func displayFetchedPodcast(viewModel: PodcastDetail.FetchPodcast.ViewModel) {
-    ImageLoader.shared.loadImage(with: viewModel.displayedPocast.artworkUrl100, image: podcastImage)
-    podcastNameLabel.text = viewModel.displayedPocast.name
-    podcastArtistNameLabel.text = viewModel.displayedPocast.artistName
-  }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup() {
+        let viewController = self
+        let interactor = PodcastDetailInteractor()
+        let presenter = PodcastDetailPresenter()
+        let router = PodcastDetailRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchPodcast()
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    // MARK: Display Podcast Detail
+    
+    @IBOutlet weak var podcastImage: UIImageView!
+    @IBOutlet weak var podcastNameLabel: UILabel!
+    @IBOutlet weak var podcastArtistNameLabel: UILabel!
+    @IBOutlet weak var copyrightLabel: UILabel!
+    @IBOutlet weak var podcastDateLabel: UILabel!
+    
+    func fetchPodcast() {
+        let request = PodcastDetail.FetchPodcast.Request()
+        interactor?.fetchPodcast(request: request)
+    }
+    
+    func displayFetchedPodcast(viewModel: PodcastDetail.FetchPodcast.ViewModel) {
+        ImageLoader.shared.loadImage(with: viewModel.displayedPocast.artworkUrl100, image: podcastImage)
+        podcastNameLabel.text = viewModel.displayedPocast.name
+        podcastArtistNameLabel.text = viewModel.displayedPocast.artistName
+        copyrightLabel.text = viewModel.displayedPocast.copyright
+        podcastDateLabel.text = viewModel.displayedPocast.date
+    }
+    
+    @IBAction func playButtonTapped(_ sender: UIButton) {
+        let request = PodcastDetail.FetchPodcast.Request()
+        interactor?.playPodcast(request: request)
+    }
 }

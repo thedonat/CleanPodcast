@@ -19,15 +19,29 @@ protocol PodcastDetailPresentationLogic {
 class PodcastDetailPresenter: PodcastDetailPresentationLogic {
   weak var viewController: PodcastDetailDisplayLogic?
   
-  // MARK: Do something
+  // MARK: Present Podcast
   
   func presentPodcast(response: PodcastDetail.FetchPodcast.Response) {
     
+
     let displayedPodcast = PodcastDetail.FetchPodcast.ViewModel.DisplayedPodcast(artistName: response.podcasts.artistName,
                                                                                  name: response.podcasts.name,
-                                                                                 artworkUrl100: response.podcasts.artworkUrl100)
+                                                                                 artworkUrl100: response.podcasts.artworkUrl100,
+                                                                                 date: getFormattedDate(date: response.podcasts.releaseDate) ?? "",
+                                                                                 copyright: response.podcasts.copyright ?? "")
     
     let viewModel = PodcastDetail.FetchPodcast.ViewModel(displayedPocast: displayedPodcast)
     viewController?.displayFetchedPodcast(viewModel: viewModel)
   }
+    
+    func getFormattedDate(date: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        guard let date = dateFormatter.date(from: date) else { return nil }
+        
+        dateFormatter.dateFormat = "MMMM yyyy"
+        let formattedDate = dateFormatter.string(from: date)
+        return formattedDate
+    }
 }

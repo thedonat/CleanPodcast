@@ -14,22 +14,24 @@ import UIKit
 import PodcastAPI
 
 enum PodcastDetail {
-  // MARK: Use cases
-  
-  enum FetchPodcast {
-    struct Request {
+    // MARK: Use cases
+    
+    enum FetchPodcast {
+        struct Request {
+        }
+        struct Response {
+            var podcasts: PodcastModel
+        }
+        struct ViewModel {
+            struct DisplayedPodcast {
+                var artistName: String
+                var name: String
+                var artworkUrl100: String
+                var date: String
+                var copyright: String
+            }
+            
+            var displayedPocast: DisplayedPodcast
+        }
     }
-    struct Response {
-        var podcasts: PodcastModel
-    }
-    struct ViewModel {
-        struct DisplayedPodcast {
-               var artistName: String
-               var name: String
-               var artworkUrl100: String
-           }
-           
-           var displayedPocast: DisplayedPodcast
-    }
-  }
 }

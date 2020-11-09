@@ -20,6 +20,7 @@ protocol PodcastDisplayLogic: class {
 class PodcastViewController: UIViewController, PodcastDisplayLogic {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var interactor: PodcastBusinessLogic?
     var router: (NSObjectProtocol & PodcastRoutingLogic & PodcastDataPassing)?
@@ -81,11 +82,15 @@ class PodcastViewController: UIViewController, PodcastDisplayLogic {
     }
     
     func displayPodcasts(viewModel: Podcast.FetchPodcasts.ViewModel) {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         displayedPodcasts = viewModel.displayedPocasts
         tableView.reloadData()
     }
     
     func configureUI() {
+        activityIndicator.startAnimating()
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(UINib(nibName: "PodcastTableViewCell", bundle: nil), forCellReuseIdentifier: "PodcastTableViewCell")
     }
     
@@ -96,6 +101,8 @@ class PodcastViewController: UIViewController, PodcastDisplayLogic {
     }
 }
 
+
+// MARK: UITableViewDataSource
 
 extension PodcastViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,6 +122,7 @@ extension PodcastViewController: UITableViewDataSource {
     }
 }
 
+// MARK: UITableViewDelegate
 
 extension PodcastViewController: UITableViewDelegate {
     
